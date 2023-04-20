@@ -20,7 +20,6 @@ resource "aws_s3_bucket" "my_bucket" {
   }
   #add flavour tags
   tags = {
-    Name = my_bucket.id
     Environment = "Test"
     Owner       = "Eze Iglesias"
   }
