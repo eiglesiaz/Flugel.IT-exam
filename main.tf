@@ -239,7 +239,7 @@ echo 'SecretKey=SECRET_KEY_HERE' >> /etc/traefik/traefik.env
 echo 'Bucket=my-unique-bucket-name' >> /etc/traefik/traefik.env
 systemctl start traefik
 EOF
-}
+
  #configure it to use the S3 bucket created in Test1
 provisioner "remote-exec" {
     inline = [
