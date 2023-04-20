@@ -3,8 +3,8 @@ package test
 #necessary modules
 import (
     "fmt"
+    "net/http"
     "os"
-    "strings"
     "testing"
     "time"
 
