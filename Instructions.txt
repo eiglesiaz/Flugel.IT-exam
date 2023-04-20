@@ -1,0 +1,39 @@
+To run and test the automation, follow these steps:
+
+1)Clone the Github repository to your local machine using the git clone command followed by the repository URL.
+git clone <repository URL>
+
+2)Navigate to the repository directory.
+cd <repository directory>
+
+3)Install Terraform and Terratest on your local machine.
+
+4)Export your AWS access key and secret key as environment variables using the following commands:
+export AWS_ACCESS_KEY_ID=<your access key>
+export AWS_SECRET_ACCESS_KEY=<your secret key>
+
+5)Initialize the Terraform backend using the following command:
+terraform init
+
+6)Run Terraform plan to view the changes that will be made to your AWS resources.
+terraform plan
+
+7)Apply the Terraform code to create the S3 bucket, EC2 instances, and VPC using the following command:
+terraform apply
+
+8)After the Terraform code is successfully applied, navigate to the ALB DNS name in a web browser to verify that the files are reachable.
+
+9)To run the Terratest automation, navigate to the test directory in the repository.
+cd test
+
+10)Export your AWS access key and secret key as environment variables using the following commands:
+export AWS_ACCESS_KEY_ID=<your access key>
+export AWS_SECRET_ACCESS_KEY=<your secret key>
+
+11)Run the Terratest tests using the following command:
+go test -v -timeout 30m
+
+12)If the tests pass, you should see a message indicating that all tests have passed.
+
+13)To clean up the AWS resources created by the Terraform code, run the following command:
+terraform destroy
