@@ -5,9 +5,14 @@ provider "aws" {
   region     = "us-east-1"
 }
 
+#add random var str
+resource "random_string" "bucket_suffix" {
+  length  = 4
+  special = false
+}
 # Create S3 bucket 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "S3Test-${random_id.random_id.hex[:4]}" #unique made
+  bucket = "S3Test-${random_string.bucket_suffix.result}" #randomness made
   acl    = "private"
   #versioning enabled
   versioning {
@@ -242,11 +247,7 @@ provisioner "remote-exec" {
       "chmod +x /tmp/sync.sh",
       "sh /tmp/sync.sh",
       "docker network create traefik-net",
-      "docker run -d -p 80:80 -p 8080:8080 --name traefik \
-       -v /var/run/docker.sock:/var/run/docker.sock \
-       -v /opt/traefik:/etc/traefik \
-       --network traefik-net \
-       traefik:v2.5 --configFile=/etc/traefik/traefik.yml",
+      "docker run -d -p 80:80 -p 8080:8080 --name traefik -v /var/run/docker.sock:/var/run/docker.sock -v /opt/traefik:/etc/traefik --network traefik-net traefik:v2.5 --configFile=/etc/traefik/traefik.yml",
     ]
   }
 
