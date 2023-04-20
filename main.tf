@@ -270,3 +270,4 @@ value = "traefik-instance"
 propagate_at_launch = true
 }
 }
+}
