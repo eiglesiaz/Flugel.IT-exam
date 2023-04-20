@@ -1,5 +1,5 @@
 # Flugel.IT-exam
-terraform exam for working purposes
+Terraform/AWS exam for working purposes
 I have merged the tasks 1 and 2 onto a single task.
 
 Task:
